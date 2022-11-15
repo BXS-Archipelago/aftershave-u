@@ -43,7 +43,7 @@
               <div class="blog-card">
 
                 <figure class="card-banner img-holder" style="--width: 500; --height: 600;">
-                  <a href="{% url 'post_detail' post.slug %}">
+                  <a href="{% url 'post_detail' post.brands.slug  post.slug %}">
                   <img src="https://camobluufragrance.com/wp-content/uploads/2018/03/Creed.png" width="500" height="600" loading="lazy"
                     alt="New technology is not good or evil in and of itself" class="img-cover">
                   </a>
@@ -69,28 +69,23 @@
                 <div class="card-content">
 
                   <ul class="card-meta-list">
-
                     <li>
-                      <a href="#" class="card-tag">Design</a>
+                      <a href="{% url 'brands_detail' post.brands.slug %}" class="card-tag">{{ post.brands }}</a>
                     </li>
 
                     <li>
-                      <a href="#" class="card-tag">Idea</a>
-                    </li>
-
-                    <li>
-                      <a href="#" class="card-tag">Review</a>
-                    </li>
+                  <a href="{% url 'creators_detail' post.creators.slug %}" class="card-tag">By: {{post.creators }} </a>
+                </li>
 
                   </ul>
                   <small>{{ post.created_at |date:'M-d-y H:i'}}</small>
                   <h3 class="h4">
                    
-                    <a href="{% url 'post_detail' post.slug %}" class="card-title hover:underline">
+                    <a href="{% url 'post_detail' post.brands.slug post.slug %}" class="card-title hover:underline">
                       {{ post.title }}
                     </a>
                   </h3>
-                  <a href="{% url 'post_detail' post.slug %}" >
+                  <a href="{% url 'post_detail' post.brands.slug post.slug %}" >
                   <p class="card-text">
                     {{ post.intro }}
                   </p>

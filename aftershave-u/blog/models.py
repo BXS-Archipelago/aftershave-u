@@ -1,12 +1,12 @@
 from django.db import models
 
-class Category(models.Model):
+class Brands(models.Model):
     title = models.CharField(max_length=255)
     slug = models.SlugField()
 
     class Meta:
         ordering = ('title',)
-        verbose_name_plural = 'Categories'
+        verbose_name_plural = 'Brands'
            
 
     def __str__(self):
@@ -18,7 +18,7 @@ class Creators(models.Model):
 
     class Meta:
         ordering = ('title',)
-        verbose_name_plural = 'Categories'
+        verbose_name_plural = 'Creators'
            
 
     def __str__(self):
@@ -26,7 +26,10 @@ class Creators(models.Model):
 
 
 class Post(models.Model):
-    
+    brands = models.ForeignKey(
+        Brands, related_name='posts', on_delete=models.CASCADE)
+    creators = models.ForeignKey(
+        Creators, related_name='posts', on_delete=models.CASCADE)
     title = models.CharField(max_length=255)
     slug = models.SlugField()
     intro = models.TextField()

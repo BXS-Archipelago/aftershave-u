@@ -292,6 +292,12 @@
     display: flex;
     gap: 5px;
   }
+
+  .category-meta-list {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+  }
   
   .card-tag {
     background-color: var(--cultured);
