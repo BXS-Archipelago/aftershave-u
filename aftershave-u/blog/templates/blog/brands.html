@@ -46,9 +46,7 @@
                   <a href="{% url 'brands_detail' post.brands.slug %}" class="card-tag">{{ post.brands }}</a>
                 </li>
 
-                <li>
-              <a href="{% url 'creators_detail' post.creators.slug %}" class="card-tag">By: {{post.creators }} </a>
-            </li>
+               
                   <li>
                 <small>{{ post.created_at |date:'M-d-y H:i'}}</small>
                   <h3 class="h4">

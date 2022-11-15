@@ -12,24 +12,9 @@ class Brands(models.Model):
     def __str__(self):
         return self.title
 
-class Creators(models.Model):
-    title = models.CharField(max_length=255)
-    slug = models.SlugField()
-
-    class Meta:
-        ordering = ('title',)
-        verbose_name_plural = 'Creators'
-           
-
-    def __str__(self):
-        return self.title
-
-
 class Post(models.Model):
     brands = models.ForeignKey(
-        Brands, related_name='posts', on_delete=models.CASCADE)
-    creators = models.ForeignKey(
-        Creators, related_name='posts', on_delete=models.CASCADE)
+        Brands, related_name='posts', on_delete=models.CASCADE)   
     title = models.CharField(max_length=255)
     slug = models.SlugField()
     intro = models.TextField()
