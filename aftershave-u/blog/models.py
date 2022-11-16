@@ -11,8 +11,18 @@ class Brands(models.Model):
 
     def __str__(self):
         return self.title
+    
+    def get_absolute_url(self):
+        return '/%s/' % self.slug 
 
 class Post(models.Model):
+    ACTIVE = 'active'
+    DRAFT = 'draft'
+
+    CHOICES_STATUS = (
+        (ACTIVE, 'Active'),
+        (DRAFT, 'Draft')
+    )
     brands = models.ForeignKey(
         Brands, related_name='posts', on_delete=models.CASCADE)   
     title = models.CharField(max_length=255)
@@ -20,6 +30,8 @@ class Post(models.Model):
     intro = models.TextField()
     body = models.TextField()
     created_at = models.DateTimeField(auto_now_add=True)
+    status = models.CharField(
+        max_length=10, choices=CHOICES_STATUS, default=ACTIVE)
     image = models.ImageField(upload_to='uploads/', blank=True, null=True)
 
     class Meta:
@@ -28,3 +40,6 @@ class Post(models.Model):
     def __str__(self):
         return self.title
 
+    
+    def get_absolute_url(self):
+        return '/%s/%s/' % (self.brands.slug, self.slug)

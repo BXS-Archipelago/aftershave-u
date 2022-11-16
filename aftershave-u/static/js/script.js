@@ -46,14 +46,14 @@ addEventOnElem(navbarLinks, "click", closeNavbar);
  * search bar toggle
  */
 
-const searchBar = document.querySelector("[data-search-bar]");
-const searchTogglers = document.querySelectorAll("[data-search-toggler]");
-const overlay = document.querySelector("[data-overlay]");
+// const searchBar = document.querySelector("[data-search-bar]");
+// const searchTogglers = document.querySelectorAll("[data-search-toggler]");
+// const overlay = document.querySelector("[data-overlay]");
 
-const toggleSearchBar = function () {
-  searchBar.classList.toggle("active");
-  overlay.classList.toggle("active");
-  document.body.classList.toggle("active");
-}
+// const toggleSearchBar = function () {
+//   searchBar.classList.toggle("active");
+//   overlay.classList.toggle("active");
+//   document.body.classList.toggle("active");
+// }
 
-addEventOnElem(searchTogglers, "click", toggleSearchBar);
+// addEventOnElem(searchTogglers, "click", toggleSearchBar);

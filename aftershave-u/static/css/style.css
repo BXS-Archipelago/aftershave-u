@@ -218,7 +218,12 @@
     aspect-ratio: var(--width) / var(--height);
     background-color: var(--light-gray-1);
     overflow: hidden;
+    
   }
+
+  figure.card-banner.img-holder {
+    max-height: 400px;
+}
   
   .img-cover {
     width: 100%;
@@ -352,11 +357,12 @@
   }
   
   .header .wrapper {
+    max-width: 125px;
     display: flex;
     gap: 15px;
   }
   
-  .search-btn { font-size: 28px; }
+  .search-btn { font-size: 1.5rem; }
   
   .search-btn ion-icon { --ionicon-stroke-width: 50px; }
   
@@ -883,12 +889,13 @@
   
     .search-btn,
     .header .btn {
-      --fs-6: 1.8rem;
+      font-size: 1.2rem;
       padding: 6px 20px;
     }
   
     .search-btn {
       display: flex;
+      flex-direction: row;
       align-items: center;
       gap: 5px;
       background-color: var(--cultured);

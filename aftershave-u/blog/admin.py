@@ -5,8 +5,8 @@ from .models import Post, Brands
 
 class PostAdmin(admin.ModelAdmin):
     search_fields = ['title', 'intro', 'body']
-    list_display = ['title', 'slug', 'brands', 'created_at']
-    list_filter = ['brands', 'created_at']
+    list_display = ['title', 'slug', 'brands', 'created_at', 'status']
+    list_filter = ['brands', 'created_at', 'status']
     prepopulated_fields = {'slug': ('title',)}
 
 

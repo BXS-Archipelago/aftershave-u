@@ -1,4 +1,4 @@
-{% extends '_base.html' %} {% block title %} {{ post.title }} {% endblock %} 
+{% extends '_base.html' %} {% block title %} Search {% endblock %} 
 {% block content %}
 <main>
     <article>
@@ -27,9 +27,11 @@
           </section>
 <section class="section featured" aria-label="featured post">
     <div class="container">
-
+        <h1 class="h1 hero-title">
+            Search <strong class="strong">Results</strong>
+          </h1>
       <p class="section-subtitle">
-        See the blogs by <strong class="strong">Brand</strong>
+        Your Query - <strong class="strong">"{{ query }}"</strong>
       </p>
 
       <ul class="has-scrollbar">
@@ -68,7 +70,7 @@
               {% empty %}
 
               <p class="section-subtitle">
-                 There are no <strong class="strong">posts</strong> for this brand category, sorry.
+                 There are no <strong class="strong">results</strong> for this query, sorry.
               </p>
 
              {% endfor %}
