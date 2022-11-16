@@ -1,0 +1,68 @@
+1. Install Poetry : curl -sSL https://install.python-poetry.org | python3 -
+2. create project directory : poetry new aftershave-u  
+3. cd folder and ls .... then.. rm -rf aftershave-u tests
+4. poetry add django
+5. poetry run django-admin startproject aftershave_u .
+6. python manage.py startapp render
+7. Create Virtual Env  ...python3 -m venv venv  ..&.. source venv/bin/activate
+8. pip install django
+9. add to installed_apps in settings... 'render.apps.RenderConfig', 
+
+10. create folder in project app for _base, index and about.html
+11. create static folder in root
+12. create media folder in root 
+13. update settings for static and media
+
+14. O_O   See settings.py for 403 Forbidden Origin Checking Failed....  CSRF_TRUSTED_ORIGINS 
+
+15. python manage.py startapp blog
+16. create Post model in models.py of blog app
+17. For images library in blog models ...
+    - python -m pip install Pillow
+18.In Admin.py import Post from models, then register Post 
+19.Create some test posts in Admin Panel
+20. In blog>views import Post model
+21. For the index function add posts = Post.objects.all() and create dictionary for posts
+22. Add jinja templating to index.html to show posts
+23. In blog>models add class Meta for ordering the posts from latest to first
+24.In blog>views import Post model and create detail function to show the post.
+25. In blog templates create detail.html
+26. Add to blog urls.py and then follow through to include in project urls.py 
+27. Create html and jinja content for detail.html
+28. Create Brands Admin Section for Brands.
+29. Add Brands to Admin.py register
+30. Create brands.html and populate with content to reflect the looped info. 
+31. In Admin.py create PostAdmin and BrandsAdmin to populate the panel with headings.
+32. In blog>models> post class, add the Status functionality for posts. 
+33. In admin.py, add status to PostAdmin for list display and filter
+34. In the project app views, for index add filter(status=Post.ACTIVE)
+35. In the blog views, for detail and brands also add filter(status=Post.ACTIVE)
+36. Add Image functionality to blog models class Post (& migrate)
+37. Update project settings to include MEDIAL_URL and MEDIA_ROOT so django can find the images in folder
+38. Add jinja to image file in frontpage surrounded with if post.image condition
+
+O_O Sitemap helps google get information about the website structure....
+39. Create Sitemap.py in apollo_blog and add imports 
+40.create sitemap functions to return categories, posts and last modified date created_at
+41. in apollo_blog project urls, import sitemap requirements
+42.create url path for sitemap.xml
+43.in blog>models create get_absolute_url functions in in Category and Post 
+44.add to installed_apps in settings.py ... 'django.contrib.sitemaps', 
+
+O_O robots_txt file will prevent bots from accessing admin or other private pages. 
+45. In apollo_blog>views.py create robots_txt function to create a list of forbidden pages
+    - import HttpResponse
+In urls.py add path for robots.txt
+
+O_O  Deploying to Render : https://render.com/docs/deploy-django
+In settings set secret key 
+DEBUG = 'RENDER' not in os.environ
+
+RENDER_EXTERNAL_HOSTNAME = os.environ.get('RENDER_EXTERNAL_HOSTNAME')if RENDER_EXTERNAL_HOSTNAME:    ALLOWED_HOSTS.append(RENDER_EXTERNAL_HOSTNAME)
+
+poetry add dj-database-url psycopg2-binary
+
+update the DATABASES in settings.py 
+
+Install WhiteNoise to host static files : poetry add 'whitenoise[brotli]'
+Update MIDDLEWARE in settings 

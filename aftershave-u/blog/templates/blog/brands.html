@@ -1,0 +1,87 @@
+{% extends '_base.html' %} {% block title %} {{ post.title }} {% endblock %} 
+{% block content %}
+<main>
+    <article>
+        <section class="section hero" aria-label="home">
+            <div class="container">
+      
+              <h1 class="h1 hero-title">
+                {{ post.title }}
+              </h1>
+      
+              <div class="wrapper">
+      
+                <form action="" class="newsletter-form">
+                  <input type="email" name="email_address" placeholder="Your email address" class="email-field">
+      
+                  <button type="submit" class="btn">Subscribe</button>
+                </form>
+      
+                <p class="newsletter-text">
+                  Get the email newsletter and unlock access to members-only content and updates
+                </p>
+      
+              </div>
+      
+            </div>
+          </section>
+<section class="section featured" aria-label="featured post">
+    <div class="container">
+
+      <p class="section-subtitle">
+        See the blogs by <strong class="strong">Brand</strong>
+      </p>
+
+      <ul class="has-scrollbar">
+       
+        <li class="scrollbar-item">
+          <div class="blog-card">
+           
+
+            <div class="card-content">
+{% for post in posts %}
+              <ul class="category-meta-list">
+                
+                <li>
+                  <a href="{% url 'brands_detail' post.brands.slug %}" class="card-tag">{{ post.brands }}</a>
+                </li>
+
+               
+                  <li>
+                <small>{{ post.created_at |date:'M-d-y H:i'}}</small>
+                  <h3 class="h4">
+                   
+                    <a href="{% url 'post_detail' post.brands.slug post.slug %}" class="card-title hover:underline">
+                      {{ post.title }}
+                    </a>
+                  </h3>
+                </li>
+                <li>
+                  <a href="{% url 'post_detail' post.brands.slug post.slug %}" >
+                  <p class="card-text">
+                    {{ post.intro }}
+                  </p>
+                  </a>
+                </li>
+                
+              </ul>
+              {% empty %}
+
+              <p class="section-subtitle">
+                 There are no <strong class="strong">posts</strong> for this brand category, sorry.
+              </p>
+
+             {% endfor %}
+
+            </div>
+
+          </div>
+        </li>
+        
+      </ul>
+    </div>
+</section>
+
+</article>
+</main>
+{% endblock %}
