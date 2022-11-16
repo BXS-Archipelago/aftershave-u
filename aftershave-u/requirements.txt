@@ -1,4 +1,4 @@
--e git+https://github.com/BXS-Archipelago/aftershave-u.git@06a8cfdd0e4756d73fbfaa27bfd8be8d72478bec#egg=aftershave_u&subdirectory=aftershave-u
+-e git+https://github.com/BXS-Archipelago/aftershave-u.git@36b44138a2a3c184a7a9eaecada23481cf241333#egg=aftershave_u&subdirectory=aftershave-u
 asgiref==3.5.2
 backports.zoneinfo==0.2.1
 Brotli==1.0.9
